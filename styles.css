@@ -88,3 +88,103 @@ section {
     from { opacity: 0; }
     to { opacity: 1; }
 }
+
+/* 成员介绍样式 */
+.group-container {
+    margin-bottom: 30px;
+}
+
+.group-title {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: white;
+    padding-bottom: 10px;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.members-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.member-card:nth-child(odd) {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.member-card:nth-child(even) {
+    background: rgba(0, 47, 167, 0.2);
+}
+
+.member-card {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.member-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(0, 47, 167, 0.7);
+}
+
+.member-card h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+    color: white;
+}
+
+.member-card p {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    text-align: center;
+    margin-bottom: 5px;
+}
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.member-card:hover {
+    transform: translateY(-5px);
+}
+
+.member-img {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+}
+
+.member-info {
+    text-align: center;
+}
+
+.member-info h3 {
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.member-info p {
+    font-size: 14px;
+    line-height: 1.5;
+}

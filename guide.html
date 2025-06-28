@@ -30,7 +30,9 @@
             <a href="#client">如何安装客户端</a>
                 <div class="submenu">
                     <a href="#beginner">我是小白</a>
-                    <a href="#experienced">我是老手</a>
+                    <a href="#experienced">我有些经验</a>
+                    <a href="#999">常见问题</a>
+
                 </div>
             <a href="#announcement">服务器公告</a>
         </nav>
@@ -49,7 +51,10 @@
         
         <section id="review">
             <h2>如何通过/申请审核</h2>
-            <p>等一等，马上服主就会写了</p>
+            <p>以下为具体方法</p>
+             <ui>   
+                  <li>首先，您需确保您有一定的MC的Java电脑版游玩经验，并且城建有一定的水平，其次您必须保证能够遵守服务器规范。若您可以保证以上内容，您可填写<a href="https://docs.qq.com/form/page/DZVByb3dUYWdoQ0pD?rtkey=498704bbf0f00d9a304fdd794eyXu1&nlc=1#/fill" target="_blank">进服审核问卷</a></li>
+                  <li>   收到回复，完成审核后您便可以进服游玩了。</li></ui>
         </section>
         
         <section id="client">
@@ -57,18 +62,174 @@
             
             <section id="beginner">
                 <h3>如果您是小白</h3>
-                <p>等一等，马上服主就会写了</p>
+                <p>以下为具体方法</p>
+                  <ui>
+                       <li>🧩 一、整合包安装教程
+整合包是预先打包好的模组集合（文件格式为 .zip 或 .rar），安装后可直接体验丰富模组内容。</li>
+
+<li>📌 详细步骤：
+打开PCL2启动器
+
+双击桌面图标启动程序，进入主界面。
+
+进入整合包管理页
+
+点击顶部菜单栏的 “下载” → 左侧选择 “整合包” 。
+
+导入整合包文件
+
+点击 “安装已有整合包” → 在弹出的文件窗口中选择下载好的整合包压缩包→ 点击 “打开” 。
+
+命名并确认安装
+
+输入 版本名称（建议标注整合包内容，如“科技生存包”）→ 点击 “确定” 。
+
+⏱️ 等待进度条完成（时间取决于整合包大小和电脑性能）。
+
+启动游戏
+
+返回主界面 → 左侧游戏列表选择刚导入的版本 → 点击 “启动游戏”</li>
+<li>服务器需第三方验证（如LittleSkin、VlssuSkin）
+适用场景：服务器要求通过Yggdrasil认证平台登录
+
+启用第三方登录
+
+打开PCL2 → 选择目标版本 → 点击右侧“齿轮图标”（版本设置）→ 进入“登录方式”选项卡3。
+
+选择 “第三方登录：Authlib-Injector”。
+
+填写认证服务器信息
+
+按服务器要求填写以下字段（以VlssuSkin为例）：
+
+认证服务器：https://skin.vlssu.com/api/yggdrasil
+
+注册链接：https://skin.vlssu.com/auth/register
+
+服务器名称：VlssuSkin3。
+
+⚠️ 注意：若提示“设置为LittleSkin”，请忽略并手动填写3。
+
+登录账号
+
+返回主界面 → 输入在第三方平台（如LittleSkin）注册的 邮箱和密码 → 登录</li>
+<li>添加服务器地址
+
+启动游戏 → 进入主菜单 → 点击 “多人游戏” → “添加服务器”。
+
+填写信息：
+
+服务器名称：自定义
+
+服务器地址：IP:端口（示例：cn-zj-nb-1.lcf.icu:43981，注意英文冒号）。
+
+点击“完成”保存。
+
+加入服务器
+
+在服务器列表中选择目标服务器 → 点击 “加入服务器”。
+
+首次连接可能需加载资源，耐心等待进入。</li>
+</ui>
+
             </section>
             
             <section id="experienced">
                 <h3>如果您已经熟知如何使用PCL/HTML</h3>
-                <p>等一等，马上服主就会写了</p>
+                <p>不必多说，直接下载整合包，及时更新mods就可以了。（不会的话还是看上面的小白教程吧）</p>
+
             </section>
+            <section id="999">
+                <h4>以下为常见问题及解决方案</h4>
+                <ui><li>错误提示：Failed to download mods 或卡在“获取mod下载信息”界面</li>
+
+<li>原因：
+
+整合包依赖的Mod下载源（如CurseForge）被屏蔽或服务器拥堵38
+
+网络波动导致请求中断
+
+解决：
+
+更换下载源：PCL2设置 → “下载” → “下载源” → 切换为 BMCLAPI 或 MCBBS（若可用）8
+
+手动安装整合包：从第三方平台（如MC百科）下载整合包文件，通过“安装已有整合包”功能导入</li>
+<li>错误提示：整合包文件损坏 或 无法识别整合包</li>
+<li>原因：文件下载不完整、解压错误或版本不兼容1
+
+解决：
+
+重新下载整合包，确保文件扩展名为 .zip 或 .rar
+
+关闭杀毒软件避免误删文件</li>
+<li>错误提示：Authentication servers are down（认证服务器宕机）</li>
+<li>原因：微软登录服务器临时故障
+
+解决：
+
+切换为“离线登录”暂用（版本设置 → 登录方式 → 离线登录）
+
+等待1~2小时后重试正版登录</li>
+<li>Java Runtime Environment not found</li>
+<li>原因：未安装Java或路径错误
+
+解决：
+
+安装 Java 17（适用于1.18+版本）
+
+PCL2设置中指定Java路径：版本设置 → Java路径 → 手动选择 javaw.exe</li>
+<li>Exit code -1 或 Mod conflict detected</li>
+<li>原因：模组冲突或内存不足
+
+解决：
+
+开启版本隔离
+
+分配更多内存：版本设置 → 内存设置 → 调整为 4096MB（建议值）</li>
+<li>错误提示：Connection timed out: No further information</li>
+<li>原因：
+
+服务器地址/IP错误
+
+防火墙拦截或端口未开放
+
+解决：
+
+确认服务器地址格式为 IP:端口（示例 112.35.68.1:25565）
+
+关闭防火墙：控制面板 → Windows Defender 防火墙 → 关闭专用网络</li>
+<li>Failed to login: Invalid session（会话无效）</li>
+<li>原因：第三方登录信息失效（如Authlib-Injector）
+
+解决：
+
+重新填写认证服务器：版本设置 → 登录方式 → 检查认证服务器URL（如LittleSkin应为 https://littleskin.cn/api/yggdrasil）
+
+在认证平台（如LittleSkin）重新生成密钥</li>
+<li>错误提示：Remote certificate invalid（远程证书无效）</li>
+<li>原因：SSL证书验证失败（常见于资源下载）
+
+解决：
+
+临时关闭SSL验证：PCL2设置 → 网络设置 → 关闭“严格SSL验证”
+
+使用VPN切换网络节点</li>
+<li>pcl2网络请求失败</li>
+<li>原因：本地DNS污染或代理设置错误
+
+解决：
+
+重置DNS：命令提示符输入 ipconfig /flushdns
+
+禁用代理：系统设置 → 网络 → 关闭VPN或代理服务器
+
+</li></ui>
         </section>
         
         <section id="announcement">
             <h2>服务器公告</h2>
-            <p>等一等，马上服主就会写了</p>
+            <p>暂无公告
+            </p>
         </section>
     </section>
 

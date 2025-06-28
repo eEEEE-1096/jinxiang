@@ -10,7 +10,7 @@ const constructionData = {
         images: [
             // 城际轨道交通图片路径
         ],
-        announcement: '正在建设中，敬请期待。。'
+        announcement: '正在建设中，敬请期待。'
     },
     city: {
         images: [

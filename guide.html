@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>锦湘工艺 - 综合指南</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-transition">
+    <nav class="navbar">
+        <div class="logo">
+            <h1>锦湘工艺</h1>
+            <p>Jinxiang Process</p>
+        </div>
+        <div class="nav-links">
+            <a href="index.html">首页</a>
+            <a href="about.html">关于我们</a>
+            <a href="construction.html">城建进度</a>
+            <a href="member.html">成员介绍</a> 
+            <a href="guide.html">综合指南</a>
+            <a href="punishment.html">处罚公告</a>
+            <a href="join.html">加入我们</a>
+           
+        </div>
+    </nav>
+
+    <div class="sidebar">
+        <nav class="sidebar-nav">
+            <a href="#review">如何通过/申请审核</a>
+            <a href="#client">如何安装客户端</a>
+                <div class="submenu">
+                    <a href="#beginner">我是小白</a>
+                    <a href="#experienced">我是老手</a>
+                </div>
+            <a href="#announcement">服务器公告</a>
+        </nav>
+        <div class="server-status">
+            <h3>服务器状态</h3>
+            <div class="status-info">
+                <p>锦湘工艺-服务器</p>
+                <p>状态: <span id="server-status">检测中...</span></p>
+               
+            </div>
+        </div>
+    </div>
+
+    <section id="guide">
+        
+        
+        <section id="review">
+            <h2>如何通过/申请审核</h2>
+            <p>等一等，马上服主就会写了</p>
+        </section>
+        
+        <section id="client">
+            <h2>如何安装客户端</h2>
+            
+            <section id="beginner">
+                <h3>如果您是小白</h3>
+                <p>等一等，马上服主就会写了</p>
+            </section>
+            
+            <section id="experienced">
+                <h3>如果您已经熟知如何使用PCL/HTML</h3>
+                <p>等一等，马上服主就会写了</p>
+            </section>
+        </section>
+        
+        <section id="announcement">
+            <h2>服务器公告</h2>
+            <p>等一等，马上服主就会写了</p>
+        </section>
+    </section>
+
+    <script>
+        // 页面加载动画
+        document.addEventListener('DOMContentLoaded', function() {
+            document.body.classList.add('page-transition');
+            
+            // 获取服务器状态
+            function updateServerStatus() {
+                const startTime = performance.now();
+                fetch('https://api.mcsrvstat.us/2/s.bu7.top:10016')
+                    .then(response => response.json())
+                    .then(data => {
+                        const statusElement = document.getElementById('server-status');
+                        const latency = Math.round(performance.now() - startTime);
+                        
+                        if (data.online) {
+                            statusElement.textContent = `在线 (${latency}ms)`;
+                            if (latency <= 50) {
+                                statusElement.style.color = '#4CAF50';
+                            } else if (latency <= 150) {
+                                statusElement.style.color = '#FFC107';
+                            } else {
+                                statusElement.style.color = '#F44336';
+                            }
+                        } else {
+                            statusElement.textContent = '离线';
+                            statusElement.style.color = '#F44336';
+                        }
+                    })
+                    .catch(error => {
+                        console.error('获取服务器状态失败:', error);
+                        document.getElementById('server-status').textContent = '获取失败';
+                    });
+            }
+            
+            // 初始获取状态
+            updateServerStatus();
+            
+            // 每1秒自动刷新状态
+            const statusInterval = setInterval(updateServerStatus, 1000);
+            
+            // 页面卸载时清除定时器
+            window.addEventListener('beforeunload', function() {
+                clearInterval(statusInterval);
+            });
+            
+            // 监听页面可见性变化，当页面重新显示时刷新状态
+            document.addEventListener('visibilitychange', function() {
+                if (!document.hidden) {
+                    updateServerStatus();
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -10,6 +10,15 @@ body {
     background: url('images/bg1.png') no-repeat center center fixed;
     background-size: cover;
     color: white;
+    transition: background-image 1s ease-in-out;
+}
+
+body.day {
+    background-image: url('images/bg1.png');
+}
+
+body.night {
+    background-image: url('images/bg2.png');
 }
 
 /* 导航栏样式 */
@@ -17,15 +26,17 @@ body {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: #002FA7;
-    opacity: 0.9;
+    background: linear-gradient(135deg, rgba(0, 47, 167, 0.95) 0%, rgba(9, 73, 214, 0.9) 100%);
+    opacity: 0.95;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 5%;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
 }
 
 .logo {
@@ -52,6 +63,17 @@ body {
     color: white;
     text-decoration: none;
     font-size: 16px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 8px 15px;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.nav-links a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 /* 页面区块样式 */
@@ -68,14 +90,35 @@ section {
 #home {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     text-align: center;
+    padding-top: 250px;
+    backdrop-filter: none !important;
 }
 
 /* 平滑过渡效果 */
-.section-transition {
+html {
     scroll-behavior: smooth;
+}
+
+/* 上下滑动动画 */
+@keyframes slideUp {
+    from { transform: translateY(50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideDown {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.section-transition {
+    animation: slideUp 0.5s ease-out forwards;
+}
+
+.section-transition.down {
+    animation: slideDown 0.5s ease-out forwards;
 }
 
 /* 页面过渡动画 */
@@ -87,6 +130,102 @@ section {
 @keyframes fadeIn {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* 侧边导航栏样式 */
+.sidebar {
+    position: fixed;
+    left: 0;
+    top: 80px;
+    width: 280px;
+    height: calc(100vh - 80px);
+    background: linear-gradient(135deg, rgba(0, 47, 167, 0.95) 0%, rgba(9, 73, 214, 0.9) 100%);
+    transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    z-index: 999;
+    animation: slideIn 0.5s ease-out;
+    border-radius: 0 25px 25px 0;
+    box-shadow: 8px 0 20px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+    border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+@keyframes slideIn {
+    from { left: -250px; }
+    to { left: 0; }
+}
+
+.sidebar:hover {
+    left: 0;
+}
+
+.sidebar-nav {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.sidebar-nav a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 25px;
+    margin: 10px 0;
+    border-radius: 12px;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    line-height: 1.6;
+    position: relative;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+}
+
+.sidebar-nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateX(8px);
+    box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+}
+
+.sidebar-nav .submenu {
+    display: none;
+    position: relative;
+    left: 0;
+    width: 100%;
+    padding-left: 15px;
+    animation: fadeIn 0.3s ease-out;
+}
+
+.sidebar-nav a:hover + .submenu,
+.sidebar-nav .submenu:hover {
+    display: block;
+}
+
+.sidebar-nav .submenu a {
+    padding: 8px 15px;
+    margin: 4px 0;
+    font-size: 14px;
+}
+
+/* 服务器状态样式 */
+.server-status {
+    margin-top: 30px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+}
+
+.server-status h3 {
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: white;
+    text-align: center;
+}
+
+.status-info p {
+    margin: 8px 0;
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.status-info span {
+    font-weight: bold;
 }
 
 /* 成员介绍样式 */
@@ -103,19 +242,14 @@ section {
 }
 
 .members-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
     gap: 20px;
     padding: 20px 0;
+    justify-content: flex-start;
 }
 
-.member-card:nth-child(odd) {
-    background: rgba(255, 255, 255, 0.1);
-}
 
-.member-card:nth-child(even) {
-    background: rgba(0, 47, 167, 0.2);
-}
 
 .member-card {
     background: rgba(255, 255, 255, 0.1);
@@ -125,6 +259,10 @@ section {
     flex-direction: column;
     align-items: center;
     transition: transform 0.3s ease;
+    min-width: 250px;
+    max-width: 250px;
+    scroll-snap-align: start;
+    flex-shrink: 0;
 }
 
 .member-card:hover {
